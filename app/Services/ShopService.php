@@ -116,7 +116,7 @@ class ShopService extends Service
                 $shop->stock()->create([
                     'shop_id'               => $shop->id,
                     'item_id'               => $data['item_id'][$key],
-                    'currency_id'           => $data['currency_id'][$key],
+                    'currency_id'           => $data['item_id'][$key],
                     'cost'                  => $data['cost'][$key],
                     'use_user_bank'         => isset($data['use_user_bank'][$key]),
                     'use_character_bank'    => isset($data['use_character_bank'][$key]),

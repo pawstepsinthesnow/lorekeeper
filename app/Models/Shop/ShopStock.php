@@ -48,8 +48,8 @@ class ShopStock extends Model
     /**
      * Get the currency the item must be purchased with.
      */
-    public function currency() 
+    public function item() 
     {
-        return $this->belongsTo('App\Models\Currency\Currency');
+        return $this->belongsTo('App\Models\Item\Item');
     }
 }
