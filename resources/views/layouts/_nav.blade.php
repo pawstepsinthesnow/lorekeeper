@@ -13,6 +13,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('news') }}">News</a>
                 </li>
+				<li class="nav-item">
+                    <a href="http://nskanetis.net/rxx/nav.html">Nsk Net Nav</a>
+                </li>
                 @if(Auth::check())
                     <li class="nav-item dropdown">
                         <a id="inventoryDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -20,6 +23,9 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="inventoryDropdown">
+							<a class="dropdown-item" href="{{ url('info/about') }}">
+                                About
+                            </a>
                             <a class="dropdown-item" href="{{ url('characters') }}">
                                 My Characters
                             </a>
