@@ -14,7 +14,7 @@
                     <a class="nav-link" href="{{ url('news') }}">News</a>
                 </li>
 				<li class="nav-item">
-                    <a href="http://nskanetis.net/rxx/nav.html">Nsk Net Nav</a>
+                    <a class ="nav-link" href="http://nskanetis.net/rxx/nav.html">Nsk Net Nav</a>
                 </li>
                 @if(Auth::check())
                     <li class="nav-item dropdown">
