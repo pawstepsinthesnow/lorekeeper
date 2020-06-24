@@ -32,7 +32,7 @@ class Item extends Model
      */
     public static $createRules = [
         'item_category_id' => 'nullable',
-        'name' => 'required|unique:items|between:3,25',
+        'name' => 'required|unique:items|between:3,100',
         'description' => 'nullable',
         'image' => 'mimes:png',
     ];
@@ -44,7 +44,7 @@ class Item extends Model
      */
     public static $updateRules = [
         'item_category_id' => 'nullable',
-        'name' => 'required|between:3,25',
+        'name' => 'required|between:3,100',
         'description' => 'nullable',
         'image' => 'mimes:png',
     ];
