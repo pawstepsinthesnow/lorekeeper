@@ -43,8 +43,14 @@
     <h2>Comments</h2>
     <div class="card mb-3"><div class="card-body">{!! nl2br(htmlentities($submission->comments)) !!}</div></div>
     @if(Auth::check() && $submission->staff_comments && ($submission->user_id == Auth::user()->id || Auth::user()->hasPower('manage_submissions')))
-        <h5 class="text-danger">Staff Comments ({!! $submission->staff->displayName !!})</h5>
-        <div class="card border-danger mb-3"><div class="card-body">{!! nl2br(htmlentities($submission->staff_comments)) !!}</div></div>
+        <h2>Staff Comments ({!! $submission->staff->displayName !!})</h2>
+        <div class="card mb-3"><div class="card-body">
+		    @if(isset($submission->parsed_staff_comments))
+                {!! $submission->parsed_staff_comments !!}
+            @else
+                {!! $submission->staff_comments !!}
+            @endif
+		</div></div>
     @endif
 
     {!! Form::open(['url' => url()->current(), 'id' => 'submissionForm']) !!}
@@ -66,7 +72,10 @@
         <div class="text-right mb-3">
             <a href="#" class="btn btn-outline-info" id="addCharacter">Add Character</a>
         </div>
-        {!! Form::hidden('staff_comments', null, ['id' => 'staffComments']) !!}
+		<div class="form-group">
+            {!! Form::label('staff_comments', 'Staff Comments (Optional)') !!}
+			{!! Form::textarea('staff_comments', $submission->staffComments, ['class' => 'form-control wysiwyg']) !!}
+        </div>
         <div class="text-right">
             <a href="#" class="btn btn-danger mr-2" id="rejectionButton">Reject</a>
             <a href="#" class="btn btn-success" id="approvalButton">Approve</a>
@@ -145,11 +154,7 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>This will reject the {{ $submission->prompt_id ? 'submission' : 'claim' }}. Enter an optional comment below to explain why the {{ $submission->prompt_id ? 'submission' : 'claim' }} was rejected.</p>
-                    <div class="form-group">
-                        {!! Form::label('staff_comments', 'Staff Comments') !!}
-                        {!! Form::textarea('', null, ['class' => 'form-control', 'id' =>  'modalStaffComments']) !!}
-                    </div>
+                    <p>This will reject the {{ $submission->prompt_id ? 'submission' : 'claim' }}.</p>
                     <div class="text-right">
                         <a href="#" id="rejectionSubmit" class="btn btn-danger">Reject</a>
                     </div>
@@ -175,8 +180,6 @@
         $(document).ready(function() {
             var $confirmationModal = $('#confirmationModal');
             var $submissionForm = $('#submissionForm');
-            var $staffComments = $('#staffComments');
-            var $modalStaffComments = $('#modalStaffComments');
 
             var $approvalButton = $('#approvalButton');
             var $approvalContent = $('#approvalContent');
@@ -202,14 +205,12 @@
 
             $approvalSubmit.on('click', function(e) {
                 e.preventDefault();
-                $staffComments.val('');
                 $submissionForm.attr('action', '{{ url()->current() }}/approve');
                 $submissionForm.submit();
             });
 
             $rejectionSubmit.on('click', function(e) {
                 e.preventDefault();
-                $staffComments.val($modalStaffComments.val());
                 $submissionForm.attr('action', '{{ url()->current() }}/reject');
                 $submissionForm.submit();
             });
