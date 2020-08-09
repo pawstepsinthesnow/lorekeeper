@@ -37,11 +37,11 @@
         </ul>
     </div>
     <div class="card-body tab-content">
-        <div class="tab-pane fade show active" id="stats">
-            @include('character._tab_stats', ['character' => $character])
-        </div>
-        <div class="tab-pane fade" id="notes">
+		<div class="tab-pane fade show active" id="notes">
             @include('character._tab_notes', ['character' => $character])
+        </div>
+        <div class="tab-pane fade" id="stats">
+            @include('character._tab_stats', ['character' => $character])
         </div>
         @if(Auth::check() && Auth::user()->hasPower('manage_characters'))
             <div class="tab-pane fade" id="settings-{{ $character->slug }}">
