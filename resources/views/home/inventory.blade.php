@@ -15,7 +15,7 @@
         <h5 class="card-header inventory-header cat{{$categories[$categoryId]->id}}">
             {!! isset($categories[$categoryId]) ? '<a href="#cat'.$categories[$categoryId]->id.'" data-toogle="collapse">'.$categories[$categoryId]->name.'</a>' : 'Miscellaneous' !!}
         </h5>
-        <div class="card-body inventory-body collapse">
+        <div id ="cat{{$categories[$categoryId]->id}}" class="card-body inventory-body collapse">
             @foreach($categoryItems->chunk(4) as $chunk)
                 <div class="row mb-3">
                     @foreach($chunk as $itemId=>$stack)
