@@ -24,10 +24,10 @@
     <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-                <a class="nav-link active" id="statsTab" data-toggle="tab" href="#stats" role="tab">Stats</a>
+                <a class="nav-link active" id="notesTab" data-toggle="tab" href="#notes" role="tab">Description</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="notesTab" data-toggle="tab" href="#notes" role="tab">Description</a>
+			<li class="nav-item">
+                <a class="nav-link" id="statsTab" data-toggle="tab" href="#stats" role="tab">Stats</a>
             </li>
             @if(Auth::check() && Auth::user()->hasPower('manage_characters'))
                 <li class="nav-item">
