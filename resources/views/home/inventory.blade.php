@@ -13,9 +13,9 @@
 @foreach($items as $categoryId=>$categoryItems)
     <div class="card mb-3 inventory-category">
         <h5 class="card-header inventory-header cat{{$categories[$categoryId]->id}}">
-            {!! isset($categories[$categoryId]) ? '<a href="#cat'.$categories[$categoryId]->id.'" data-toogle="collapse">'.$categories[$categoryId]->name.'</a>' : 'Miscellaneous' !!}
+            {!! isset($categories[$categoryId]) ? '<a href="#cat'.$categories[$categoryId]->id.'" data-toggle="collapse" data-target="#cat'.$categories[$categoryId]->id.'">'.$categories[$categoryId]->name.'</a>' : 'Miscellaneous' !!}
         </h5>
-        <div id ="cat{{$categories[$categoryId]->id}}" class="card-body inventory-body collapse">
+        <div id ="cat{{$categories[$categoryId]->id}}" class="card-body inventory-body collapse in">
             @foreach($categoryItems->chunk(4) as $chunk)
                 <div class="row mb-3">
                     @foreach($chunk as $itemId=>$stack)
