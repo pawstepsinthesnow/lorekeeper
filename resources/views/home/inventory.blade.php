@@ -12,10 +12,10 @@
 <p>This is your inventory. Click on an item to view more details and actions you can perform on it.</p>
 @foreach($items as $categoryId=>$categoryItems)
     <div class="card mb-3 inventory-category">
-        <h5 class="card-header inventory-header">
-            {!! isset($categories[$categoryId]) ? '<a href="'.$categories[$categoryId]->searchUrl.'">'.$categories[$categoryId]->name.'</a>' : 'Miscellaneous' !!}
+        <h5 class="card-header inventory-header cat{{$categories[$categoryId]->id}}">
+            {!! isset($categories[$categoryId]) ? '<a href="#cat'.$categories[$categoryId]->id.'" data-toogle="collapse">'.$categories[$categoryId]->name.'</a>' : 'Miscellaneous' !!}
         </h5>
-        <div class="card-body inventory-body">
+        <div class="card-body inventory-body collapse">
             @foreach($categoryItems->chunk(4) as $chunk)
                 <div class="row mb-3">
                     @foreach($chunk as $itemId=>$stack)
