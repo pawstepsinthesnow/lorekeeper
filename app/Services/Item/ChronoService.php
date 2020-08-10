@@ -132,10 +132,10 @@ class ChronoService extends Service
                 if((new InventoryManager)->debitStack($stack->user, 'Box Opened', ['data' => ''], $stack, $data['quantities'][$key])) {
                     
                     for($q=0; $q<$data['quantities'][$key]; $q++) {
-                         //Distribute user rewards
+                        // Distribute user rewards
                         if(!$rewards = fillUserAssets(parseAssetData($stack->item->tag('chrono')->data), $user, $user, 'Box Rewards', [
-                            'data' => 'Date: '.$date;
-                        ])) throw new \Exception("Failed to label chrono.");
+                            'data' => 'Received rewards from opening '.$stack->item->name
+                        ])) throw new \Exception("Failed to open box.");
                         flash($this->getBoxRewardsString($rewards));
                     }
                 }
