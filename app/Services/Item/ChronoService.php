@@ -10,7 +10,7 @@ use App\Models\Item\Item;
 use App\Models\Currency\Currency;
 use App\Models\Loot\LootTable;
 
-class BoxService extends Service
+class ChronoService extends Service
 {
     /*
     |--------------------------------------------------------------------------
