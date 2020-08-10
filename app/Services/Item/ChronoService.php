@@ -127,7 +127,7 @@ class ChronoService extends Service
                 // so do some validation... 
                 if($stack->user_id != $user->id) throw new \Exception("This item does not belong to you.");
 				//testing query date
-				$date = DB::table('user_items')->where($stack->id)->value('created_at');
+				$date = DB::table('user_items')->where('id', $stack->id)->value('created_at');
                 // Next, try to delete the box item. If successful, we can start distributing rewards.
                 if((new InventoryManager)->debitStack($stack->user, 'Box Opened', ['data' => ''], $stack, $data['quantities'][$key])) {
                     
