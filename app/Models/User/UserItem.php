@@ -70,6 +70,16 @@ class UserItem extends Model
         return json_decode($this->attributes['data'], true);
     }
     
+	/**
+	 * Testing - returns the creation timestamp
+	 *
+	 * @return string
+	 */
+	 public function getTimeCreated()
+	 {
+		 return($this->attributes['created_at']);
+	 }
+	
     /**
      * Checks if the stack is transferrable.
      *

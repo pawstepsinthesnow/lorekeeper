@@ -18,4 +18,9 @@ return [
         'text_color' => '#ffffff',
         'background_color' => '#f6993f'
     ],
+	'chrono' => [
+        'name' => 'Chrono',
+        'text_color' => '#ffffff',
+        'background_color' => '#FF1493'
+    ]
 ];
