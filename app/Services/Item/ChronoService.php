@@ -126,16 +126,17 @@ class ChronoService extends Service
                 // We don't want to let anyone who isn't the owner of the box open it,
                 // so do some validation... 
                 if($stack->user_id != $user->id) throw new \Exception("This item does not belong to you.");
-
+				//testing query date
+				$date = DB::table('user_items')->where($stack->id)->value('created_at');
                 // Next, try to delete the box item. If successful, we can start distributing rewards.
                 if((new InventoryManager)->debitStack($stack->user, 'Box Opened', ['data' => ''], $stack, $data['quantities'][$key])) {
                     
                     for($q=0; $q<$data['quantities'][$key]; $q++) {
-                        // Distribute user rewards
-                        //if(!$rewards = fillUserAssets(parseAssetData($stack->item->tag('chrono')->data), $user, $user, 'Box Rewards', [
-                        //    'data' => 'Date: '.$stack->created_at
-                        //])) throw new \Exception("Failed to label chrono.");
-                        //flash($this->getBoxRewardsString($rewards));
+                         //Distribute user rewards
+                        if(!$rewards = fillUserAssets(parseAssetData($stack->item->tag('chrono')->data), $user, $user, 'Box Rewards', [
+                            'data' => 'Date: '.$date;
+                        ])) throw new \Exception("Failed to label chrono.");
+                        flash($this->getBoxRewardsString($rewards));
                     }
                 }
             }
