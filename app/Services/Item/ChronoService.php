@@ -134,7 +134,7 @@ class ChronoService extends Service
                     for($q=0; $q<$data['quantities'][$key]; $q++) {
                         // Distribute user rewards
                         if(!$rewards = fillUserAssets(parseAssetData($stack->item->tag('chrono')->data), $user, $user, 'Box Rewards', [
-                            'data' => 'Received rewards from opening '.$stack->item->name
+                            'data' => 'Received on '.$date
                         ])) throw new \Exception("Failed to open box.");
                         flash($this->getBoxRewardsString($rewards));
                     }
