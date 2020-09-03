@@ -1617,7 +1617,7 @@ class CharacterManager extends Service
                 foreach($data['stack_id'] as $key=>$stackId) {
                     $stack = UserItem::with('item')->find($stackId);
                     if(!$stack || $stack->user_id != $request->user_id) throw new \Exception("Invalid item selected.");
-                    $stack->update_count = $data['stack_quantity'][$key];
+                    $stack->update_count += $data['stack_quantity'][$key];
                     $stack->save();
 
                     addAsset($userAssets, $stack, $data['stack_quantity'][$key]);
@@ -1779,11 +1779,16 @@ class CharacterManager extends Service
                     $userItemRow->save();
                 }
 
+<<<<<<< HEAD
+=======
+                $staff = $user;
+>>>>>>> pr/4
                 foreach($stacks as $stackId=>$quantity) {
                     $stack = UserItem::find($stackId);
                     $user = User::find($request->user_id);
                     if(!$inventoryManager->debitStack($user, $request->character->is_myo_slot ? 'MYO Design Approved' : 'Character Design Updated', ['data' => 'Item used in ' . ($request->character->is_myo_slot ? 'MYO design approval' : 'Character design update') . ' (<a href="'.$request->url.'">#'.$request->id.'</a>)'], $stack, $quantity)) throw new \Exception("Failed to create log for item stack.");
                 }
+                $user = $staff;
             }
             $currencyManager = new CurrencyManager;
             if(isset($requestData['user']['currencies']) && $requestData['user']['currencies'])
