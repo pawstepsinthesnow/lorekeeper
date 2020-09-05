@@ -11,6 +11,7 @@ use App\Models\User\User;
 use App\Models\User\UserItem;
 use App\Models\Character\Character;
 use App\Models\Item\Item;
+use App\Models\Raffle\Raffle;
 use App\Models\Item\ItemCategory;
 use App\Models\Currency\Currency;
 use App\Models\Submission\Submission;
@@ -96,6 +97,7 @@ class SubmissionController extends Controller
             'prompts' => Prompt::active()->sortAlphabetical()->pluck('name', 'id')->toArray(),
             'characterCurrencies' => Currency::where('is_character_owned', 1)->orderBy('sort_character', 'DESC')->pluck('name', 'id'),
             'categories' => ItemCategory::orderBy('sort', 'DESC')->get(),
+            'item_filter' => Item::orderBy('name')->get()->keyBy('id'),
             'items' => Item::orderBy('name')->pluck('name', 'id'),
             'currencies' => Currency::where('is_user_owned', 1)->orderBy('name')->pluck('name', 'id'),
             'inventory' => $inventory,
@@ -218,8 +220,10 @@ class SubmissionController extends Controller
             'characterCurrencies' => Currency::where('is_character_owned', 1)->orderBy('sort_character', 'DESC')->pluck('name', 'id'),
             'categories' => ItemCategory::orderBy('sort', 'DESC')->get(),
             'inventory' => $inventory,
+            'item_filter' => Item::orderBy('name')->get()->keyBy('id'),
             'items' => Item::orderBy('name')->pluck('name', 'id'),
             'currencies' => Currency::where('is_user_owned', 1)->orderBy('name')->pluck('name', 'id'),
+            'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
             'page' => 'submission'
         ]));
     }
