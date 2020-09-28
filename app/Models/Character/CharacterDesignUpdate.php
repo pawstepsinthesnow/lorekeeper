@@ -173,7 +173,7 @@ class CharacterDesignupdate extends Model
      */
     public function scopeMyos($query)
     {
-        $query->select('design_updates.*')->where('update_type', 'MYO');
+        $query->select('design_updates.*')->join('characters', 'design_updates.character_id', 'characters.id')->where('characters.is_myo_slot', 1);
     }
 
     /**
@@ -184,7 +184,7 @@ class CharacterDesignupdate extends Model
      */
     public function scopeCharacters($query)
     {
-        $query->select('design_updates.*')->where('update_type', 'Character');
+        $query->select('design_updates.*')->join('characters', 'design_updates.character_id', 'characters.id')->where('characters.is_myo_slot', 0);
     }
 
     /**********************************************************************************************
