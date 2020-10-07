@@ -1783,10 +1783,9 @@ class CharacterManager extends Service
                     $userItemRow->save();
                 }
 
-<<<<<<< HEAD
-=======
+
                 $staff = $user;
->>>>>>> pr/4
+
                 foreach($stacks as $stackId=>$quantity) {
                     $stack = UserItem::find($stackId);
                     $user = User::find($request->user_id);
