@@ -69,7 +69,7 @@ return [
     */
     'character_codes' => '{category}-{number}',
     'character_number_digits' => 3,
-    'character_pull_number' => 'all',
+    'character_pull_number' => 'category',
 
     /*
     |--------------------------------------------------------------------------
