@@ -147,11 +147,11 @@ Route::group(['prefix' => 'claims', 'namespace' => 'Users'], function() {
 });
 
 /**************************************************************************************************
-<<<<<<< HEAD
     Embedded Images
 **************************************************************************************************/
 Route::get('/embed', 'EmbedController@getEmbed');
-=======
+
+/***********************
     Comments
 **************************************************************************************************/
 Route::get('comment/{id}', 'PermalinkController@getComment');
@@ -163,5 +163,3 @@ Route::group(['prefix' => 'reports', 'namespace' => 'Users'], function() {
     Route::get('/bug-reports', 'ReportController@getBugIndex');
 });
 
-
->>>>>>> pr/6
