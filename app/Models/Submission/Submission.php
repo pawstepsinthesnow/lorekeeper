@@ -6,9 +6,11 @@ use Config;
 use DB;
 use Carbon\Carbon;
 use App\Models\Model;
+use App\Traits\Commentable;
 
-class Submission extends Model
-{
+class Submission extends Model 
+{   
+	use Commentable;
     /**
      * The attributes that are mass assignable.
      *
