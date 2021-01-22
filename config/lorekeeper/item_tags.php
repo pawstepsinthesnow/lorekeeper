@@ -22,7 +22,7 @@ return [
         'name' => 'Chrono',
         'text_color' => '#ffffff',
         'background_color' => '#FF1493'
-    ]
+    ],
     
     'slot' => [
         'name' => 'Slot',
