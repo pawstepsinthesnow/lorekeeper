@@ -38,6 +38,11 @@
 			<li class="nav-item">
                 <a class="nav-link" id="statsTab" data-toggle="tab" href="#stats" role="tab">Stats</a>
             </li>
+            @if($character->getLineageBlacklistLevel() < 2)
+                <li class="nav-item">
+                    <a class="nav-link" id="lineageTab" data-toggle="tab" href="#lineage" role="tab">Lineage</a>
+                </li>
+            @endif
             @if(Auth::check() && Auth::user()->hasPower('manage_characters'))
                 <li class="nav-item">
                     <a class="nav-link" id="settingsTab" data-toggle="tab" href="#settings-{{ $character->slug }}" role="tab"><i class="fas fa-cog"></i></a>
@@ -49,9 +54,17 @@
 		<div class="tab-pane fade show active" id="notes">
             @include('character._tab_notes', ['character' => $character])
         </div>
+<<<<<<< HEAD
         <div class="tab-pane fade" id="stats">
             @include('character._tab_stats', ['character' => $character])
         </div>
+=======
+        @if($character->getLineageBlacklistLevel() < 2)
+            <div class="tab-pane fade" id="lineage">
+                @include('character._tab_lineage', ['character' => $character])
+            </div>
+        @endif
+>>>>>>> pr/7
         @if(Auth::check() && Auth::user()->hasPower('manage_characters'))
             <div class="tab-pane fade" id="settings-{{ $character->slug }}">
                 {!! Form::open(['url' => $character->is_myo_slot ? 'admin/myo/'.$character->id.'/settings' : 'admin/character/'.$character->slug.'/settings']) !!}
