@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
+    'ML\\IRI' => array($vendorDir . '/ml/iri'),
     'Laracasts\\Flash' => array($vendorDir . '/laracasts/flash/src'),
     'HTMLPurifier' => array($vendorDir . '/ezyang/htmlpurifier/library'),
 );
