@@ -112,18 +112,18 @@ class CommentController extends Controller implements CommentControllerInterface
                 if($recipients == $sender) $recipient = (isset($report->staff_id) ? $report->staff : User::find(Settings::get('admin_user')));
                 else  $recipient = $recipients;
                 break; 
-            case 'App\Models\SitePage':
-                $page = SitePage::find($comment->commentable_id);
-                $recipient = User::find(Settings::get('admin_user'));
-                $post = 'your site page';
-                $link = $page->url . '/#comment-' . $comment->getKey();
-                break;  
 			case 'App\Models\Submission\Submission':
 				$submission = Submission::find($comment->commentable_id);
                 $recipient = $submission->user; // User that has been commented on (or owner of sale post)
                 $post = 'your submission'; // Simple message to show if it's profile/sales/news
                 $link = 'submissions/view/' . $submission->id . '/#comment-' . $comment->getKey();
                 break;
+            case 'App\Models\SitePage':
+                $page = SitePage::find($comment->commentable_id);
+                $recipient = User::find(Settings::get('admin_user'));
+                $post = 'your site page';
+                $link = $page->url . '/#comment-' . $comment->getKey();
+                break;  
             } 
 
 
