@@ -31,6 +31,16 @@
 </div>
 
 <div class="form-group">
+	{!! Form::label('Mother label for lineage') !!}
+	{!! Form::text('mother', $category->mother, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
+	{!! Form::label('Father label for lineage') !!}
+	{!! Form::text('father', $category->father, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
     {!! Form::label('World Page Image (Optional)') !!} {!! add_help('This image is used only on the world information pages.') !!}
     <div>{!! Form::file('image') !!}</div>
     <div class="text-muted">Recommended size: 200px x 200px</div>
@@ -45,16 +55,6 @@
 <div class="form-group">
     {!! Form::label('Description (Optional)') !!}
     {!! Form::textarea('description', $category->description, ['class' => 'form-control wysiwyg']) !!}
-</div>
-
-<div class="form-group">
-	{!! Form::label('Mother label for lineage') !!}
-	{!! Form::text('mother', $category->mother, ['class' => 'form-control']) !!}
-</div>
-
-<div class="form-group">
-	{!! Form::label('Father label for lineage') !!}
-	{!! Form::text('father', $category->father, ['class' => 'form-control']) !!}
 </div>
 
 @include('admin.lineage._edit_lineage_blacklist', [
