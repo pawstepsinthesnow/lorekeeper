@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d07151205014098a416ff92801e8ed8b",
+    "content-hash": "391d34f8874c55a37fd69dd7edb10717",
     "packages": [
         {
             "name": "boxconnect/deviant-php",
