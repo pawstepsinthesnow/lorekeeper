@@ -122,7 +122,7 @@ class CommentController extends Controller implements CommentControllerInterface
 				$submission = Submission::find($comment->commentable_id);
                 $recipient = $submission->user; // User that has been commented on (or owner of sale post)
                 $post = 'your submission'; // Simple message to show if it's profile/sales/news
-                $link = $'submissions/view/' . $submission->id . '/#comment-' . $comment->getKey();
+                $link = 'submissions/view/' . $submission->id . '/#comment-' . $comment->getKey();
                 break;
             } 
 
