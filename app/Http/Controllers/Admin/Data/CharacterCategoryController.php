@@ -81,7 +81,7 @@ class CharacterCategoryController extends Controller
         $id ? $request->validate(CharacterCategory::$updateRules) : $request->validate(CharacterCategory::$createRules);
         $data = $request->only([
             'lineage-blacklist',
-            'code', 'name', 'description', 'image', 'remove_image', 'masterlist_sub_id'
+            'code', 'name', 'description', 'image', 'remove_image', 'masterlist_sub_id', 'mother', 'father'
         ]);
         if($id && $service->updateCharacterCategory(CharacterCategory::find($id), $data)) {
             flash('Category updated successfully.')->success();
