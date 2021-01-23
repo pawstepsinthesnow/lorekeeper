@@ -13,7 +13,7 @@ class CharacterCategory extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'name', 'sort', 'has_image', 'description', 'parsed_description', 'masterlist_sub_id'
+        'code', 'name', 'sort', 'has_image', 'description', 'parsed_description', 'masterlist_sub_id', 'mother', 'father'
     ];
 
     /**
@@ -33,6 +33,8 @@ class CharacterCategory extends Model
         'code' => 'required|unique:character_categories|between:1,25',
         'description' => 'nullable',
         'image' => 'mimes:png',
+		'mother' => 'required|between:3,25',
+		'father' => 'required|between:3,25'
     ];
     
     /**
@@ -45,6 +47,8 @@ class CharacterCategory extends Model
         'code' => 'required|between:1,25',
         'description' => 'nullable',
         'image' => 'mimes:png',
+		'mother' => 'required|between:3,25',
+		'father' => 'required|between:3,25'
     ];
 
     /**********************************************************************************************
@@ -140,4 +144,14 @@ class CharacterCategory extends Model
         else
         return url('masterlist?character_category_id='.$this->id);
     }
+	
+	public function getMother()
+	{
+		return $this->mother;
+	}
+	
+	public function getFather()
+	{
+		return $this->father;
+	}
 }

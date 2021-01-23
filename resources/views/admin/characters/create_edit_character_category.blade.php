@@ -47,6 +47,16 @@
     {!! Form::textarea('description', $category->description, ['class' => 'form-control wysiwyg']) !!}
 </div>
 
+<div class="form-group">
+	{!! Form::label('Mother label for lineage') !!}
+	{!! Form::text('mother', $category->mother, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
+	{!! Form::label('Father label for lineage') !!}
+	{!! Form::text('father', $category->father, ['class' => 'form-control']) !!}
+</div>
+
 @include('admin.lineage._edit_lineage_blacklist', [
     'lineageBlacklist' => $lineageBlacklist,
     'type' => 'category'
