@@ -265,4 +265,8 @@
 
     </script>
 @endif
+@include('home._submission_content', ['submission' => $submission])
+@comments(['model' => $submission, 'perPage' => 5])
+
 @endsection
+
