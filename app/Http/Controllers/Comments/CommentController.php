@@ -19,6 +19,7 @@ use App\Models\User\User;
 use App\Models\News;
 use App\Models\Report\Report;
 use App\Models\SitePage;
+use App\Models\Submission\Submission;
 
 use Notifications;
 
