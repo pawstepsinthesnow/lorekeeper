@@ -8,6 +8,7 @@ use App\Models\Model;
 use App\Models\Currency\Currency;
 use App\Models\Feature\FeatureCategory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\Commentable;
 
 class CharacterDesignupdate extends Model
 {

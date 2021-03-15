@@ -20,6 +20,7 @@ use App\Models\News;
 use App\Models\Report\Report;
 use App\Models\SitePage;
 use App\Models\Submission\Submission;
+use App\Models\Character\CharacterDesignUpdate;
 
 use Notifications;
 
@@ -124,6 +125,12 @@ class CommentController extends Controller implements CommentControllerInterface
                 $recipient = User::find(Settings::get('admin_user'));
                 $post = 'your site page';
                 $link = $page->url . '/#comment-' . $comment->getKey();
+                break;
+			case 'App\Models\Character\CharacterDesignUpdate':
+                $request = CharacterDesignUpdate::find($comment->commentable_id);
+                $recipient = $request->user;
+                $post = 'your design update request';
+                $link = 'designs' . $request->id . '/#comment-' . $comment->getKey();
                 break;  
             } 
 

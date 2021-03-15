@@ -63,6 +63,9 @@
     <p>This request has been approved. The data is preserved as a record of this submission.</p>
 @endif
 
+@comments(['model' => $request,
+        'perPage' => 5
+    ])
 @endsection
 
 @section('scripts')
