@@ -12,10 +12,6 @@
     @yield('design-content')
 @endsection
 
-@comments(['model' => $request,
-        'perPage' => 5
-    ])
-
 @section('scripts')
 @parent
 @endsection

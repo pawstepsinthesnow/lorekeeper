@@ -28,4 +28,8 @@
     </div>
 @endif
 
+@comments(['model' => $request,
+        'perPage' => 5
+    ])
+
 @endsection
