@@ -126,11 +126,11 @@ class CommentController extends Controller implements CommentControllerInterface
                 $post = 'your site page';
                 $link = $page->url . '/#comment-' . $comment->getKey();
                 break;
-			case 'App\Models\Character\CharacterDesignUpdate':
+			case 'App\Models\Character\CharacterDesignupdate':
                 $request = CharacterDesignUpdate::find($comment->commentable_id);
                 $recipient = $request->user;
                 $post = 'your design update request';
-                $link = 'designs' . $request->id . '/#comment-' . $comment->getKey();
+                $link = 'designs' . $request->id . '/comments#comment-' . $comment->getKey();
                 break;  
             } 
 
