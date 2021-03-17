@@ -19,6 +19,8 @@ use App\Models\Feature\Feature;
 use App\Models\Item\ItemCategory;
 use App\Services\CharacterManager;
 
+use App\Traits\Commentable;
+
 use App\Http\Controllers\Controller;
 
 class DesignController extends Controller
