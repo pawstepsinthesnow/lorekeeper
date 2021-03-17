@@ -30,6 +30,8 @@ use App\Models\Submission\Submission;
 use App\Models\Submission\SubmissionCharacter;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use App\Traits\Commentable;
+
 class Character extends Model
 {
     use SoftDeletes;
