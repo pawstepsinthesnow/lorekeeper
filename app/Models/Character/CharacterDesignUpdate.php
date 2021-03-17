@@ -13,6 +13,7 @@ use App\Traits\Commentable;
 class CharacterDesignupdate extends Model
 {
     use SoftDeletes;
+	use Commentable;
 
     /**
      * The attributes that are mass assignable.
